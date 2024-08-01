@@ -140,3 +140,96 @@ let newArray9 = array9.map(function (item) {
   return item / 3;
 });
 console.log(newArray9);
+
+// Task 13
+// მოცემულია მასივი, შემდეგი მნიშვნელობებით -
+// let array1 =[“hello1”, 14,24, “hello2”]
+// გამოიტანეთ მარტო ციფრები მეთოდის საშუალებით;
+
+let array10 = ["hello1", 14, 24, "hello2"];
+array10.forEach(function (item) {
+  if (typeof item === "number") console.log(item);
+});
+
+// Task 14
+// მოცემულია მასივი:
+// let languages = ['html', 'css', 'javascript', ‘python’, 'php'];
+// ფილტრის საშულებით გაფილტრეთ და გამოიტანეთ მარტო ის სიტყვა რომლის სიმბოლოების რაოდენობა იქნება 3-ზე მეტი;
+
+let languages = ["html", "css", "javascript", "python", "php"];
+let result2 = languages.filter((word) => word.length > 3);
+console.log(result2);
+
+// Task 15
+// მოცემულია მასივი:
+// let words = ['Madrid', 'rome', 'Milan', 'berlin'];
+// filter მეთოდის საშუალებით დააბრუნეთ მასივი,
+// რომელიც შედგება ისეთი სიტყვებისგან რომელიც შეიცავს ასო m-ს ან M-ს;
+
+let words = ["Madrid", "rome", "Milan", "berlin"];
+let result3 = words.filter((city) =>
+  city.includes("m") || city.includes("M") ? city : null
+);
+console.log(result3);
+
+// Taskk 16
+// მოცემულია: let link = “https://google.com”.
+// დაწერეთ ფუნქცია, რომელიც პარამეტრად იღებს ამ ცვლადს,
+// და შეამოწმეთ მეთოდის საშუალებით არის თუ არა ამ ცვლადში “https://“.
+// თუ კი გამოიტანეთ - კი მოიცავს, თუ არა - არა, არ მოიცავს
+
+let link = "https://google.com";
+let myFunc = (link) => {
+  return link.includes("https://") ? "კი მოიცავს" : "არა, არ მოიცავს";
+};
+console.log(myFunc(link));
+
+// Task 17
+// შეამოწმეთ მოცემულ მასივში let array6 = [-1, -2, -3, 4];
+// არის თუ არა ერთი მაინც დადებითი რიცხვი some მეთოდით.
+
+let array11 = [-1, -2, -3, 4];
+let positive = array11.some((num) => num > 0);
+console.log(positive ? "არის" : "არ არის");
+
+// Task 18
+// მოცემულია სტრინგი - ‘12345’, გაიგეთ ამ რიცხვებსის ჯამი.
+// ( უნდა გადაიყავნოთ მასივში, გათვალოთ ჯამი, და შემდგ თითოეული სტრინგი გადაიყავნოთ რიცხვში)
+
+let someString = "12345";
+let numArray = someString.split("");
+console.log(numArray);
+let sum2 = 0;
+numArray.forEach((item) => (sum2 += Number(item)));
+console.log(sum2);
+
+// Task 19
+// Გამოთვალეთ ნებისმიერი რიცხვებს ჯამი reduce მეთოდით
+
+let func2 = (...array) => {
+  return array.reduce(function (accumulator, currentValue) {
+    return accumulator + currentValue;
+  }, 0);
+};
+
+console.log(func2(1, 2, 3, 4));
+
+// Taskk 20
+// Გაერთიანეთ სამი მასივის მნიშვენლობები let arr1 = [1, 2];
+// let arr2 = [3, 4];
+// let arr3 = [5, 6];
+// Ერთ მასივში
+
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let arr3 = [5, 6];
+
+let singleArray = [arr1, arr2, arr3].reduce(function (
+  accumulator,
+  currentValue
+) {
+  return accumulator.concat(currentValue);
+},
+[]);
+
+console.log(singleArray);
